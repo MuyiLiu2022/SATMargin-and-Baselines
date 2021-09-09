@@ -1,0 +1,53 @@
+Please Contact XXX if you have any further question
+
+
+
+SATMargin:
+
+Compile:
+g++ -std=c++11 SATMargin.cpp -lcryptominisat5 -o SATMargin
+Please install Cryptominisat5, VFlib before your compilation
+Please see input file example: 55221. Each line is one edge, graphs are separate by "#".
+ 
+Execute: 
+./SATMargin 55221
+
+
+Baselines:
+
+Commargin:
+
+Compile:
+g++ -std=c++11 Commargin.cpp -o Commargin
+
+Execute: 
+./Commargin 55221
+
+
+VFMargin and VF2Margin:
+
+Compile:
+g++ -std=c++11 VF2Margin.cpp -lcryptominisat5 -L./vf2lib-master/lib/ -I./vf2lib-master/include/ -lvf -lstdc++ -lm -o VF2Margin
+g++ -std=c++11 VF2Margin.cpp -lcryptominisat5 -L./vf2lib-master/lib/ -I./vf2lib-master/include/ -lvf -lstdc++ -lm -o VFMargin
+
+Execute: 
+./VFMargin 55221
+./VF2Margin 55221
+
+
+
+
+Output Format:
+
+ 0.010701 0.012794 0.023616 43
+ 0.011804 0.013403 0.025326 43
+ 0.011056 0.021675 0.032844 42
+ 0.011933 0.023781 0.03582 42
+ 0.006141 0.021681 0.027943 41
+ 0.011809 0.025044 0.036987 41
+ 0.011686 0.025536 0.03736 40
+
+Note:
+Each line is one random walk step:
+Time of conversion to SAT in second		Time of computation		Total time	number of edge in MFS
+0.010701 					0.012794 			0.023616	43
